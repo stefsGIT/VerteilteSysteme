@@ -105,7 +105,7 @@ private static DatagramSocket SERVERSOCKET;
 				for (int i = 0; i < folder.length; i++) {
 					if(folder[i].getName().equals(aKey+".txt")) {
 						FileReader input = new FileReader(folder[i]);
-						char[] array = new char[75];
+						char[] array = new char[80];
 						input.read(array);
 						input.close();
 						String buffer = "OK "+Character.toString(array[0]);
