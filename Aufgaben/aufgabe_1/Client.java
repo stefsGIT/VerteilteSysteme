@@ -33,7 +33,7 @@ public class Client extends Thread{
 			byte[] receiveData = new byte[1024];
 				switch(messageInput()) {
 					case "SAVE":
-						System.out.println("Sie können jetzt Ihre Nachricht eingeben, die gespeichert werden soll. Bitte achten Sie darauf, die Nachricht mit einem Satzzeichen zu beenden und sie darf maximal 80 Zeichen lang sein.");
+						System.out.println("Sie können jetzt Ihre Nachricht eingeben, die gespeichert werden soll. Bitte achten Sie darauf, die Nachricht mit einer Raute zu beenden und sie darf maximal 80 Zeichen lang sein.");
 						String input = messageInput();
 						if(checkMessage(input)) {
 							DatagramPacket packetToSend = new DatagramPacket(("SAVE "+input).getBytes(), ("SAVE "+input).getBytes().length, IPADDRESS, PORTNUMBER);
@@ -88,7 +88,7 @@ public class Client extends Thread{
 	}
 
 	private static Boolean checkMessage(String Message){
-		if (Message.endsWith(";") || Message.endsWith(".")||Message.endsWith("?")||Message.endsWith("!")||Message.endsWith(":")){
+		if (Message.endsWith("#")){
 			if (Message.length()<=80){
 				return true;
 			}
